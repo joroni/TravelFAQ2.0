@@ -1,16 +1,15 @@
 /**
- * Author,email :     Aldrin Rasdas , arasdas@coca-cola.com
- * Date Create  :     April, 2014
- * Description  :     Contains methods/functions that deal mainly remote data
- *
- * REVISION HISTORY
- *
- * Author,email :	Raymund Niconi , niconi@coca-cola.com
- * Date Revised :	April, 2016
- * Description  :	Contains methods/functions that deal mainly remote data, UI enhancements and transitions
- *
- **/
-
+* Author,email :     Aldrin Rasdas , arasdas@coca-cola.com
+* Date Create  :     April, 2014
+* Description  :     Contains methods/functions that deal mainly with User Interface
+*
+* REVISION HISTORY
+*
+* Author,email :
+* Date Revised :
+* Description  :
+*
+**/
 var appUI = new Object();
 
 appUI.blocked = false;
@@ -32,9 +31,10 @@ appUI.popAbout = function() {
 	appUI.blocked = true;
 }
 
-
-
 appUI.initialize = function() {	
+
+	$(".jqm-navmenu-panel ul").addClass("ui-listview");
+	$(".ui-listview li a").addClass("ui-btn ui-btn-icon-right ui-icon-carat-r");
 	
 	$( "#updateProgressDialog").enhanceWithin().popup({history:false});
 	$( "#updateProgressDialog" ).popup('close');	
@@ -56,12 +56,10 @@ appUI.initialize = function() {
                 $.mobile.silentScroll(0);
             },1000);
         });
-	$("#allCountries li").addClass("showup");
 	
 	appUI.setupDetailsHolder();
 	
-	appUI.resizeContent();	
-		
+	appUI.resizeContent();		
 }
 
 appUI.setupDetailsHolder = function() {
@@ -74,7 +72,6 @@ appUI.setupDetailsHolder = function() {
 			html+='<li data-role="list-divider">';
 			html+= '<div class="detail-header"><img src="images/icons/' + config.detailLabels[i].icon + '" class="detail-icon">' + config.detailLabels[i].text + '</div>';
 			html+='</li>';
-			
 			
 			html+='<li>';
 			html+='<p class="detail-item" id="' + config.detailLabels[i].id + '"></p>';
@@ -96,7 +93,6 @@ appUI.setupDetailsHolder = function() {
 	d.html(html);
 	d.trigger('create');
 }
-//alert(icon);
 
 appUI.leftHeaderButtonClick = function() {
 	if (appUI.isLandscape() && config.tabletMode) {
@@ -120,7 +116,6 @@ appUI.arrangeScreenLayout = function() {
 		if (appUI.isLandscape()) {
 			//landscape			
 			appUI.switchToLandscape();
-			
 		} else {
 			//portrait
 			appUI.switchToPortrait();
@@ -131,66 +126,31 @@ appUI.arrangeScreenLayout = function() {
 	}
 	appUI.positionListFilter();	
 }
-/*
+
 appUI.switchToLandscape = function() {
-	
-	lisTing();
 	$("#listPanelLandscape").append($("#listContainer").detach());
 	$("#leftHeaderButton").addClass("ui-icon-location");
-	$("#leftHeaderButton").removeClass("ui-icon-bars");
+	$("#leftHeaderButton").removeClass("ui-icon-grid");
 	$("#listPanelLandscapeHolder").css("width","30%");
 	$("#contentHolder").css("width","70%");	
 	$("#listPanelLandscapeHolder").show();
 	$("#listPanel").hide();
-	
 	appUI.resizeContent();
-	appUI.resizeCountryList();
-		
+	appUI.resizeCountryList();	
 }
-*/
+
 appUI.switchToPortrait = function() {
-	
-	//$("#allCountries li").show();
-	lisTing();
 	$("#listPanel").append($("#listContainer").detach());
-	$("#leftHeaderButton").addClass("ui-icon-bars");
+	$("#leftHeaderButton").addClass("ui-icon-grid");
 	$("#leftHeaderButton").removeClass("ui-icon-location");
 	$("#listPanelLandscapeHolder").hide();
 	$("#listPanelLandscapeHolder").css("width","0%");
 	$("#contentHolder").css("width","100%");
 	$("#listPanel").show();
 	$("#listPanel").panel("close");	
-	
-	
-	
 	appUI.resizeContent();
 	appUI.resizeCountryList();		
 }
-
-/*
-function lisTing() {
-$("#leftHeaderButton").on("click",function(){
-        var cl = $("#allCountries li");
-        if(cl.hasClass("showup")){
-            $(this).addClass("hidden");
-        }else{            
-            $(this).removeClass("showup");
-        }
-    });
-}
-*/
-
-function lisTing() {
-$("#leftHeaderButton").on("click",function(){
-        var cl = $("#allCountries li");
-        if(cl.hasClass("showup")){
-            $(this).addClass("hidden");
-        }else{            
-            $(this).removeClass("showup");
-        }
-    });
-}
-
 
 appUI.resizeCountryList = function() {
 	
@@ -256,7 +216,7 @@ appUI.initiateDataUpdate = function() {
 			function(data) { //finish callback
 				localStore.updateData(data, 
 					function() {					
-						$("#updateText").html("Downloading updates. Please wait...");	
+						$("#updateText").html("Downloading country icons...");	
 						appUI.downloadFlags(function() {
 							var currentCode = $("#currentCountry").data("country-code");
 							if (currentCode) {
@@ -379,16 +339,6 @@ appUI.closeMenu = function() {
 	$("#optionsPanel").panel("close");
 }
 
-/*
-$.get('sidemenu.html')
- .success(function(data) {
-     $('#listPanel').html(data);
- });*/
- 
- 
-/*	
-
-
 appUI.populateCountriesAll = function() {
 	localStore.getData("SELECT *", null, null, function(localData) {			
 		if (localData.length>0) {
@@ -396,10 +346,7 @@ appUI.populateCountriesAll = function() {
 			var list = $("#allCountries");
 			list.empty();
 			for (i=0; i<len; i++) {
-				
-				
-				
-			var code = localData[i].code;
+				var code = localData[i].code;
 				var name = localData[i].name;
 				var li = document.createElement("li");
 				var a = document.createElement("a");
@@ -407,9 +354,6 @@ appUI.populateCountriesAll = function() {
 				var icon = document.createElement("img");
 				icon.style.width = "30px";
 				icon.style.height = "30px";
-				
-				
-				
 				
 				var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();				
 				if (!localFileExists(iconPath)) {
@@ -431,29 +375,16 @@ appUI.populateCountriesAll = function() {
 					appUI.populateCountryDetails(this.country,true);
 				}});
 				
-				
 				$(li).attr('region', localData[i].region);
-				
 				li.appendChild(a);
-				
 				list.append(li);
-				
-				
-				
 
 			}
-			
-		
-
 						
 			list.listview({
 				autodividersSelector: function(li) {
-					
 					return $(li).attr('region');
-					//$('.ui-listview .ui-li-divider').prepend(ic);
-					
 				}
-				
 			});						
 			
 			appUI.clearCountryFilter();
@@ -463,7 +394,7 @@ appUI.populateCountriesAll = function() {
 			appUI.resizeCountryList();
 		}				
 	});		
-}*/
+}
 
 appUI.clearCountryFilter = function() {
 	$(".ui-filterable .ui-input-clear").click();
@@ -471,42 +402,17 @@ appUI.clearCountryFilter = function() {
 
 appUI.positionListFilter = function() {
 	if (!config.fixCountryFilter) return;
-	
-		$("#allCountries li.ui-li-divider").show();
-		$("#allCountries li").hide();
-		$("#listFilter").show();
-		$("#listFilter").append($(".ui-filterable").detach());
-		$("#allCountries").css("padding-top","0px")
-		
-		
-	
-	
-	
-}
-
-/*appUI.positionListFilter = function() {
-	if (!config.fixCountryFilter) return;
 	if (config.tabletMode && appUI.isLandscape()) {
-		$("#allCountries li").show();
 		$("#listFilterLS").show();
 		$("#listFilterLS").append($(".ui-filterable").detach());
-		$("#allCountries").css("padding-top","20px");
-		
-		
-					
+		$("#allCountries").css("padding-top","20px");				
 	} else {
-		$("#allCountries li.ui-li-divider").show();
-		$("#allCountries li").hide();
 		$("#listFilter").show();
 		$("#listFilter").append($(".ui-filterable").detach());
 		$("#allCountries").css("padding-top","0px")
-		
-		
 	}
-	
-	
 }
-*/
+
 appUI.populateCountryDetails = function(countryCode) {
 	localStore.getData("SELECT *", "code like ?", [countryCode], function(localData) {			
 		if (localData.length>0) {			
@@ -522,12 +428,8 @@ appUI.populateCountryDetails = function(countryCode) {
 			if (pf && pf=="Android") mapShowURI = "geo:0,0?q=" + config.mapCoords1Key;
 			if (pf && pf=="Android") mapDirURI = "https://maps.google.com/?q=" + config.mapCoords2Key + "+to+" + config.mapCoords1Key;
 
-			//var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
-			var imgPath = config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
-			
-			
-			//alert(imgPath);
 			if (!localFileExists(imgPath)) {				
 				imgPath = config.defaultIconPath;
 			} 
@@ -574,11 +476,11 @@ appUI.populateCountryDetails = function(countryCode) {
 							mapDirLink = mapDirLink.replace(config.mapCoords2Key, geocoding.currentLocation);
 						}
 					}
-						
+					
 					officeLoc +='<div class="ui-show-map-container">';
-					officeLoc +='<a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-location ui-btn-inline ui-btn-icon-notext" onclick="openExtLink(\'' + mapLink + '\')">Location</a>';
+					officeLoc +='<a href="#" onclick="openExtLink(\'' + mapLink + '\')">[Show Map]</a>';
 					if (mapDirLink) {
-						officeLoc +='&nbsp;&nbsp;&nbsp;<a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-navigation ui-btn-icon-notext" onclick="openExtLink(\'' +  mapDirLink + '\')">Navigation</a>';
+						officeLoc +='&nbsp;&nbsp;&nbsp;<a href="#" onclick="openExtLink(\'' +  mapDirLink + '\')">[Get Directions]</a>';
 					}
 					officeLoc +='</div>';
 				}	
@@ -621,7 +523,6 @@ appUI.launchFirstScreen = function( countryCode ) {
 				if (countryCode=='') {
 					countryCode = getDefaultCountry();
 				}
-				
 				if ((countryCode) && (countryCode!='')) {
 					localStore.getData("SELECT *", "code like ?", [countryCode], function(localData) {			
 						if (localData.length>0) {
@@ -649,12 +550,8 @@ appUI.launchFirstScreen = function( countryCode ) {
 					});
 				}
 				
-				
-				
 				if (hasConnection()) {
-					
 					appUI.checkUpdate(); 
-					
 				}
 			} else {
 				$("#no_data").show();
@@ -685,7 +582,6 @@ appUI.fixPortrait = function() {
 
 appUI.fixLandscape = function() {
 	try {
-		//window.plugins.orientationLock.lock("landscape");
 		window.plugins.orientationLock.lock("landscape");
 	} catch (err) {}			
 }
@@ -725,7 +621,6 @@ appUI.gotoCurrentLocation = function() {
 	if (!navigator.geolocation) {
 		return;
 	}
-	// alert (localData[0].name);
 	
 	localStore.getData("SELECT *", null, null, 
 		function(localData) {
@@ -734,7 +629,6 @@ appUI.gotoCurrentLocation = function() {
 					function(countryCode) {
 						appUI.populateCountryDetails(countryCode);
 						$("#listPanel").panel("close");
-						
 					}
 				);
 			} else {
@@ -743,5 +637,3 @@ appUI.gotoCurrentLocation = function() {
 		}
 	);	
 }
-
-
