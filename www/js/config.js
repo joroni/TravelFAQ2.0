@@ -41,7 +41,7 @@ config.remoteServerAddress = "http://icokecontent.chinacloudapp.cn/store/travelf
 //config.remoteServerAddress ="https://partner.coca-cola.com/sites/TravelFAQ/_vti_bin/ListData.svc/";
 config.remoteDataFileName = "TravelFAQData.xml";
 config.remoteDataFlagsFolder = "flags";
-config.remoteConnectTimeout = 5000;
+config.remoteConnectTimeout = 6000;
 
 config.geoLatSearchKey = '<latitude>';
 config.geoLngSearchKey = '<longitude>';
