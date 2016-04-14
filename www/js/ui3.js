@@ -32,6 +32,9 @@ appUI.popAbout = function() {
 }
 
 appUI.initialize = function() {	
+
+	$(".jqm-navmenu-panel ul").addClass("ui-listview");
+	$(".ui-listview li a").addClass("ui-btn ui-btn-icon-right ui-icon-carat-r");
 	
 	$( "#updateProgressDialog").enhanceWithin().popup({history:false});
 	$( "#updateProgressDialog" ).popup('close');	
@@ -193,6 +196,7 @@ appUI.initiateDataUpdate = function() {
 	if (!hasConnection()) {
 		alert('Connection is required.\n\nPlease connect to internet and try again.');
 		return;
+		appUI.setUserScreen(); /* RAYMUND ADDED so user can continue using the app*/
 	}
 	var ajax = new XMLHttpRequest();
 	
@@ -206,7 +210,7 @@ appUI.initiateDataUpdate = function() {
 		appUI.blocked = false;	
 	}
 
-	var afterOpen = function(event, ui) {		
+	/* var afterOpen = function(event, ui) {		
 		appUI.blocked = true;
 		$("#updateText").html("Downloading data...");
 		remoteStore.getData( ajax, 
@@ -249,7 +253,7 @@ appUI.initiateDataUpdate = function() {
 		
 		$("#updateProgressDialog").off("popupafteropen", afterOpen);
 			
-	};
+	};*/
 
 	$("#updateProgressDialog").on("popupafteropen", afterOpen);
 	
@@ -258,7 +262,7 @@ appUI.initiateDataUpdate = function() {
 	$("#updateProgressDialog").popup("open");
 }
 
-appUI.downloadFlags = function(finishCallback) {
+/*appUI.downloadFlags = function(finishCallback) {
 	
 	var folder = config.localImageFolderPath;
 	var remotePath = config.remoteServerAddress + '/' + config.remoteDataFlagsFolder + '/';
@@ -330,11 +334,13 @@ appUI.downloadFlags = function(finishCallback) {
 	} else {
 		if (finishCallback) finishCallback();
 	}
-}
+}*/
 	
 appUI.closeMenu = function() {
 	$("#optionsPanel").panel("close");
 }
+
+
 
 appUI.populateCountriesAll = function() {
 	localStore.getData("SELECT *", null, null, function(localData) {			
@@ -352,7 +358,11 @@ appUI.populateCountriesAll = function() {
 				icon.style.width = "30px";
 				icon.style.height = "30px";
 				
-				var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();				
+				//var iconPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + code.toLowerCase() + ".png?" + Math.random();	
+				
+				
+			var imgPath = config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+						
 				if (!localFileExists(iconPath)) {
 					iconPath = config.defaultIconPath;
 				}
@@ -399,6 +409,22 @@ appUI.clearCountryFilter = function() {
 
 appUI.positionListFilter = function() {
 	if (!config.fixCountryFilter) return;
+	
+		$("#allCountries li.ui-li-divider").show();
+		$("#allCountries li").hide();
+		$("#listFilter").show();
+		$("#listFilter").append($(".ui-filterable").detach());
+		$("#allCountries").css("padding-top","0px")
+		
+		
+	
+	
+	
+}
+
+/*
+appUI.positionListFilter = function() {
+	if (!config.fixCountryFilter) return;
 	if (config.tabletMode && appUI.isLandscape()) {
 		$("#listFilterLS").show();
 		$("#listFilterLS").append($(".ui-filterable").detach());
@@ -408,7 +434,7 @@ appUI.positionListFilter = function() {
 		$("#listFilter").append($(".ui-filterable").detach());
 		$("#allCountries").css("padding-top","0px")
 	}
-}
+}*/
 
 appUI.populateCountryDetails = function(countryCode) {
 	localStore.getData("SELECT *", "code like ?", [countryCode], function(localData) {			
@@ -425,7 +451,9 @@ appUI.populateCountryDetails = function(countryCode) {
 			if (pf && pf=="Android") mapShowURI = "geo:0,0?q=" + config.mapCoords1Key;
 			if (pf && pf=="Android") mapDirURI = "https://maps.google.com/?q=" + config.mapCoords2Key + "+to+" + config.mapCoords1Key;
 
-			var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+		//	var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			
+				var imgPath =  config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
 			if (!localFileExists(imgPath)) {				
 				imgPath = config.defaultIconPath;

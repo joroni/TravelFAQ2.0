@@ -210,7 +210,7 @@ appUI.initiateDataUpdate = function() {
 		appUI.blocked = false;	
 	}
 
-	/* var afterOpen = function(event, ui) {		
+	 var afterOpen = function(event, ui) {		
 		appUI.blocked = true;
 		$("#updateText").html("Downloading data...");
 		remoteStore.getData( ajax, 
@@ -253,7 +253,7 @@ appUI.initiateDataUpdate = function() {
 		
 		$("#updateProgressDialog").off("popupafteropen", afterOpen);
 			
-	};*/
+	};
 
 	$("#updateProgressDialog").on("popupafteropen", afterOpen);
 	
@@ -262,7 +262,7 @@ appUI.initiateDataUpdate = function() {
 	$("#updateProgressDialog").popup("open");
 }
 
-/*appUI.downloadFlags = function(finishCallback) {
+appUI.downloadFlags = function(finishCallback) {
 	
 	var folder = config.localImageFolderPath;
 	var remotePath = config.remoteServerAddress + '/' + config.remoteDataFlagsFolder + '/';
@@ -334,7 +334,7 @@ appUI.initiateDataUpdate = function() {
 	} else {
 		if (finishCallback) finishCallback();
 	}
-}*/
+}
 	
 appUI.closeMenu = function() {
 	$("#optionsPanel").panel("close");
@@ -451,9 +451,9 @@ appUI.populateCountryDetails = function(countryCode) {
 			if (pf && pf=="Android") mapShowURI = "geo:0,0?q=" + config.mapCoords1Key;
 			if (pf && pf=="Android") mapDirURI = "https://maps.google.com/?q=" + config.mapCoords2Key + "+to+" + config.mapCoords1Key;
 
-		//	var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+			var imgPath = config.fileSystemRootFolder + '/' + config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
-				var imgPath =  config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
+				//var imgPath =  config.localImageFolderPath + '/' + countryCode.toLowerCase() + ".png?" + Math.random();
 			
 			if (!localFileExists(imgPath)) {				
 				imgPath = config.defaultIconPath;
