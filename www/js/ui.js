@@ -196,6 +196,7 @@ appUI.initiateDataUpdate = function() {
 	if (!hasConnection()) {
 		alert('Connection is required.\n\nPlease connect to internet and try again.');
 		return;
+		appUI.setUserScreen(); /* RAYMUND ADDED so user can continue using the app*/
 	}
 	var ajax = new XMLHttpRequest();
 	
