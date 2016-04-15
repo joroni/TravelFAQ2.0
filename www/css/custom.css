@@ -18,6 +18,12 @@ img.tfq-logo {
 	width:150px;
 }
 
+.loaderspin {
+  -moz-animation: rotation1 30s linear infinite;
+  -o-animation: rotation1 30s linear infinite;
+  -webkit-animation: rotation1 30s linear infinite;
+  animation: rotation1 30s linear infinite;
+}
 
 .ui-footer {
     border-width: 0px !important;
