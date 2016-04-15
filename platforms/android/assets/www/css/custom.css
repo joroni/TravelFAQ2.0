@@ -14,6 +14,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+img.tfq-logo {
+	width:150px;
+}
+
 .page-header {
 	background-image:url("../images/logo.png");
 	background-position: center;

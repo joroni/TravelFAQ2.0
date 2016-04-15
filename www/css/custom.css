@@ -18,6 +18,13 @@ img.tfq-logo {
 	width:150px;
 }
 
+
+.ui-footer {
+    border-width: 0px 0 !important;
+    border-style: solid;
+    position: relative;
+}
+
 .page-header {
 	background-image:url("../images/logo.png");
 	background-position: center;
