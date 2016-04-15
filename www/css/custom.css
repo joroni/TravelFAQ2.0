@@ -20,8 +20,8 @@ img.tfq-logo {
 
 
 .ui-footer {
-    border-width: 0px 0 !important;
-    border-style: solid;
+    border-width: 0px !important;
+    border-style:none;
     position: relative;
 }
 
