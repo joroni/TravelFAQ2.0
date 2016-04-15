@@ -371,7 +371,7 @@ appUI.populateCountriesAll = function() {
 				}});
 				
 				$(li).attr('region', localData[i].region);
-				li.appendChild(a);
+				li.appendChild(a).hide();
 				list.append(li);
 
 			}

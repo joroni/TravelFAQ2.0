@@ -372,7 +372,7 @@ appUI.populateCountriesAll = function() {
 				
 				$(li).attr('region', localData[i].region);
 				li.appendChild(a);
-				list.append(li);
+				list.append(li).hide();
 
 			}
 						
