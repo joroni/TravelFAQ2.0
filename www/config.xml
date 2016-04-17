@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ko.travelfaq" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Travel FAQ 2.0-</name>
+<widget id="com.ko.travelfaq2" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Travel FAQ 2.0</name>
     <description>TCCC Travel FAQ app</description>
     <author email="" href="http://phonegap.com">GSS Manila COE</author>
     <preference name="permissions" value="none" />
@@ -98,6 +98,21 @@
      </platform>	
 	 
     <access origin="*" />
+	
+  <plugin name="cordova-plugin-whitelist" version="1"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>
 	
 	<preference name="SplashScreen" value="screen" />
 	<preference name="SplashScreenDelay" value="100000000" />		
