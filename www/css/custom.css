@@ -13,16 +13,38 @@
 
 @charset "utf-8";
 /* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
+@import "fontawesome/font-awesome.min.css";
+
+
+.ui-btn, label.ui-btn {
+    border-style: solid;
+    border-width: 2px;
+}
 
 img.tfq-logo {
 	width:150px;
+	color:#fff;
 }
 
-.loaderspin {
-  -moz-animation: rotation1 30s linear infinite;
-  -o-animation: rotation1 30s linear infinite;
-  -webkit-animation: rotation1 30s linear infinite;
-  animation: rotation1 30s linear infinite;
+.nav-icon {
+		color:#fff;
+		
+}
+#loaderspin {
+background-image:url("../images/loader.svg"); 
+width:30px;
+height:30px;
+}
+
+.ui-header-fixed {
+    height: 80px;
+    left: 0;
+    position: fixed;
+    right: 0;
+	top:0px;
+    width: 100%;
+    z-index: 1000;
 }
 
 .ui-footer {
@@ -32,11 +54,20 @@ img.tfq-logo {
 }
 
 .page-header {
-	background-image:url("../images/logo.png");
-	background-position: center;
-	background-repeat:no-repeat;
-	height:3em;
-	margin-top:2px;
+    background-image: url("../images/tfq-logo.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 3em;
+    margin-top: 10px;
+}
+
+.ui-navbar.top-ui-navbar {
+ 
+    max-width: 100%;
+    position: relative;
+	top:-25px;
+  
 }
 
 .detail-icon {
@@ -106,7 +137,15 @@ img.tfq-logo {
 }
 
 .content-area {
-	background-image:url(../images/background.png); 
+	padding:0px;
+	border: none;
+}
+
+#main {
+	background-image:url("../images/background.png"); 
+	background-position:center center;
+	background-size:cover;
+	background-repeat:no-repeat;
 	padding:0px;
 	border: none;
 }

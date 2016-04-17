@@ -5,6 +5,7 @@
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
+   <preference name="phonegap-version" value="3.4.0" />
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="true"/>
   <preference name="webviewbounce" value="true"/>
@@ -76,4 +77,7 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
+  
+  <preference name="SplashScreen" value="screen" />
+	<preference name="SplashScreenDelay" value="100000000" />	
 </widget>
