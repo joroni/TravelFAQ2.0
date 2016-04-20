@@ -34,7 +34,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />        
 		
-        <title>Travel FAQ 2.0</title>
+        <title>Travel FAQ</title>
 
         <link rel="stylesheet" href="jquery.mobile.theme-1.4.2.min.css" type="text/css"/>
         <link rel="stylesheet" href="css/themes/CocaColaRed.min.css" type="text/css"/>
@@ -46,23 +46,20 @@
 		
     </head>
     <body>
-		<div id="main" data-role="page"> <div class="loaderspin"></div>
+		<div id="main" data-role="page">
 			<div data-role="header" data-position="fixed" data-theme="b" id="header"  data-tap-toggle="false">        
 				<!-- the coca-cola logo -->
-			 <div class="page-header" id="titlebar"></div>
-             <div class="ui-navbar top-ui-navbar">
-				<a class="nav-icon ui-btn ui-btn-left ui-icon-grid ui-btn-icon-notext ui-corner-all" onclick="appUI.leftHeaderButtonClick()" data-icon="grid" data-iconpos="notext" data-direction="reverse" id="leftHeaderButton">Countries</a>
-				<a class="nav-icon ui-btn ui-icon-gear ui-btn-icon-notext ui-corner-all ui-btn-right" href="#optionsPanel" data-icon="gear" data-iconpos="notext">Options</a>            
+				<div class="page-header" id="titlebar"></div>
+				<a class="nav-icon" onclick="appUI.leftHeaderButtonClick()" data-icon="grid" data-iconpos="notext" data-direction="reverse" id="leftHeaderButton">Countries</a>
+				<a class="nav-icon" href="#optionsPanel" data-icon="gear" data-iconpos="notext">Options</a>            
 				
 				
 				<!-- the bar below the logo -->
-				<div class="ui-grid-b" style="height:0px;">
+				<div class="ui-grid-b" style="height:40px;">
 					<div class="ui-block-a"></div>
-					<div class="ui-block-b" style="text-align: center;"><div style="margin-top:0px;"></div></div>
+					<div class="ui-block-b" style="text-align: center;"><div style="margin-top:15px;">Travel FAQ</div></div>
 					<div class="ui-block-c" align="right"></div>
-				</div>  
-                
-                </div>                 
+				</div>                   
 			</div>
 			
 			<!-- content area, dynamic -->
@@ -132,7 +129,7 @@
 				<div data-role="header" data-theme="b">
 					<a class="nav-icon" href="#listPanel" data-icon="arrow-l" data-iconpos="notext">Close</a>
 					<a class="nav-icon" href="#" onclick="appUI.gotoCurrentLocation();" data-icon="location" data-iconpos="notext">Current Location</a>
-					<h4>Regions</h4>        					
+					<h4>Countries</h4>        					
 				</div>  
                 <div id="listFilter" style="display:none;padding:0px;margin:0px;"></div>
 				<div class="country-list-holder-portrait" id="listContainer">
@@ -143,7 +140,7 @@
 			
 			<div data-role="footer" data-position="fixed" data-theme="b" id="footer" data-tap-toggle="false">
 				<div class="footer-text">INTERNAL USE ONLY</div>
-				<div class="footer-text">&copy; Copyright 2016. The Coca-Cola Company</div>
+				<div class="footer-text">&copy; Copyright 2014. The Coca-Cola Company</div>
 			</div>      
 		</div> 
 
@@ -152,10 +149,8 @@
 			<div data-role="header" class="ui-corner-top">
 				<h1>Status</h1>
 			</div>    
-			<center>  
-            <!--      	
-				<img src="images/icons/spinner_red.gif" style="height:30px;weight:30px;margin-top:10px;"> -->
-                <div class="loaderspin"></div>
+			<center>        	
+				<img src="images/icons/spinner_red.gif" style="height:30px;weight:30px;margin-top:10px;">
 				<div style="margin-left:10px;margin-right:10px;" id="updateText">Update in progress. Please wait...</div>
 				<a href="#" data-role="button" style="width:80px;" id="updateCancelBtn">Cancel</a>
 			</center>
@@ -168,8 +163,8 @@
 			</div>    
 			<center>        	
 	            <h2 style="margin-left:10px;margin-right:10px;margin-top:10px;font-weight:bold;" id="appName">Travel FAQ</h2>
-				<div style="margin-left:10px;margin-right:10px;margin-top:10px;font-weight:bold;" id="aboutVersion">Version 2.0</div>
-				<div style="margin-left:10px;margin-right:10px;margin-top:5px;">&copy; Copyright 2016</div>
+				<div style="margin-left:10px;margin-right:10px;margin-top:10px;font-weight:bold;" id="aboutVersion">Version 1.0a</div>
+				<div style="margin-left:10px;margin-right:10px;margin-top:5px;">&copy; Copyright 2014</div>
 				<div style="margin-left:10px;margin-right:10px;margin-top:5px;font-weight:bold;">The Coca-Cola Company</div>            
 				<div style="margin-left:10px;margin-right:10px;margin-top:5px;">All rights reserved</div>            
 				<a href="#" data-role="button" onclick="$('#aboutDialog').popup('close');appUI.blocked=false;" style="width:80px;" >OK</a>
