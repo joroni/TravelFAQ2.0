@@ -13,13 +13,138 @@
 
 @charset "utf-8";
 /* CSS Document */
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,100,400,700);
+
+@import "fontawesome/font-awesome.min.css";
+
+
+html, body {
+	font-family:"Roboto", sans-serif;
+}
+
+/*
+#allCountries li, #allCountries li li {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+*/
+.ui-listview > .ui-li-static, .ui-listview > .ui-li-divider, .ui-listview > li > a.ui-btn {
+    border-style: solid;
+	
+}
+
+
+div#details.detail-area div.ui-collapsible-set.ui-group-theme-b.ui-corner-all div.ui-collapsible.ui-collapsible-inset.ui-corner-all.ui-collapsible-themed-content.ui-collapsible-collapsed {
+	border:none;
+}
+
+.ui-collapsible-inset .ui-collapsible-heading .ui-btn {
+    border:1px solid rgba(255,255,255,0.75);
+	margin-top:2px;
+}
+
+.ui-btn, label.ui-btn, .nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-btn-icon-notext.ui-corner-all{
+    border-style: solid;
+    border-width: 2px;
+}
+
+nav-icon.ui-btn.ui-corner-all, a.ui-btn.ui-btn-left.ui-icon-carat-r.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-left.ui-icon-carat-l.ui-btn-icon-notext.ui-corner-all,
+a.nav-icon.ui-btn.ui-btn-right.ui-icon-location.ui-btn-icon-notext.ui-corner-all {
+	top:20px;
+	border-style: solid;
+    border-width: 2px;
+}
+
+img.tfq-logo {
+	width:150px;
+	color:#fff;
+}
+
+.nav-icon {
+		color:#fff;
+		
+}
+
+.detail-content {
+		 border-size:3px !important;
+	}	
+	
+#loaderspin {
+background-image:url("../images/loader.svg"); 
+width:30px;
+height:30px;
+}
+
+.ui-header {
+    height: 50px;
+    left: 0;
+    right: 0;
+	padding-top:10px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.ui-header-fixed {
+    height: 80px;
+    left: 0;
+    position: fixed;
+    right: 0;
+	top:0px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.ui-footer {
+    border-width: 0px !important;
+    border-style:none;
+    position: relative;
+}
+
+
+/**************/
+.ui-listview > .ui-li-divider, .ui-li-divider.ui-bar-inherit.ui-first-child {
+    padding-left: 0.5em;
+	background-color:rgba(239,24,33,1) !important;
+	color:#eee;
+	font-size:1.2em;
+	text-shadow:0  1px  0  #333; 
+}
+.inlineIcon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+/**************/
+
+#allCountries li{
+	background-color:rgba(204,0,9,0.9) !important;
+	background-image:url("../images/icons-svg/carat-d-white.svg");
+	background-repeat:no-repeat;
+	background-position:center right 10px;
+	display:block;
+}
+
+
+
 
 .page-header {
-	background-image:url("../images/logo.png");
-	background-position: center;
-	background-repeat:no-repeat;
-	height:3em;
-	margin-top:2px;
+    background-image: url("../images/tfq-logo.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 3em;
+    margin-top: 20px;
+}
+
+.ui-navbar.top-ui-navbar {
+ 
+    max-width: 100%;
+    position: relative;
+	top:-40px;
+  
 }
 
 .detail-icon {
@@ -89,7 +214,15 @@
 }
 
 .content-area {
-	background-image:url(../images/background.png); 
+	padding:0px;
+	border: none;
+}
+
+#main {
+	background-image:url("../images/background.png"); 
+	background-position:center center;
+	background-size:cover;
+	background-repeat:no-repeat;
 	padding:0px;
 	border: none;
 }
@@ -108,6 +241,11 @@
 	margin:0px;
 	padding:0px;
 	-webkit-overflow-scrolling: touch;
+}
+
+.detail-header {
+	background:rgba(204,0,9,0.9) !important;
+	border:0px !important;
 }
 
 .country-detail-header {
@@ -168,6 +306,16 @@ a {
 	.detail-content {
 		font-size:12pt;
 	}		
+}
+
+#footer {
+	background-color: rgba(204, 0, 9, 0);
+    border-color: transparent;
+	font-weight:100;
+}
+
+.footer-text {
+	font-weight:100;
 }
 
 .country-list-container {
